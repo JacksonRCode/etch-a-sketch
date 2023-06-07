@@ -63,12 +63,22 @@ h1 {
     margin: 0;
     width: 80px;
     height: 80px;
-    opacity: 0.75;
-    background-color: white;
 }
 
 .black {
     background-color: black;
+}
+
+div > .eraser {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.eraser > .img {
+    width: 85%;
+    height: 85%;
 }
 
 .color-selector {
@@ -78,7 +88,7 @@ h1 {
     background-color: transparent;
     padding: 0;
     margin: 0;
-    opacity: 0.75;
+    opacity: 1;
     width: 85px;
     height: 85px;
     border: none;
@@ -93,9 +103,9 @@ h1 {
     border-radius: 100px;
 }
 
-.colorBtn:hover {
-    opacity: 1;
-}
+/* .colorBtn:hover {
+    opacity: 0.9;
+} */
 
 .dimensions {
     display: flex;
@@ -159,6 +169,6 @@ h1 {
     width: 100%;
 }
 
-.success {
-    background-color: black;
+.rainbow {
+    background-color: yellow;
 }

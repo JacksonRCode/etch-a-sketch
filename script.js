@@ -32,7 +32,7 @@ function makeTile() {
     tile.style.width = dim + 'px';
     tile.style.height = dim + 'px';
     tile.addEventListener('mouseover', () => {
-        tile.classList.add('success')
+        tile.style.backgroundColor = tileColor;
     });
 
     return tile;
@@ -57,9 +57,33 @@ function newGrid() {
     makeGrid();
 }
 
+function colorChange() {
+    let buttons = document.querySelectorAll('.colorBtn');
+    buttons.forEach((button) => {
+        if (button.classList.contains('color-selector')) {
+            button.addEventListener('change', (e) => {
+                console.log('hello');
+                tileColor = e.target.value;
+            })
+        }
+        else {
+            button.addEventListener('click', () => {
+            tileColor = getComputedStyle(button).backgroundColor;
+            });
+        }
+    })
+
+
+
+
+    // let button = document.querySelector('.black');
+    // console.log(getComputedStyle(button).backgroundColor);
+}
+
 let gridSize = 16;
+let tileColor = "black";
+
 createBtns();
-
 makeGrid();
-
+colorChange();
 
