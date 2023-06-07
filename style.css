@@ -31,7 +31,6 @@ h1 {
     flex-wrap: wrap-reverse;
     gap: 50px;
     margin: 50px;
-    border: 2px solid black;
 }
 
 .toolbar {
@@ -44,6 +43,58 @@ h1 {
     background-color: #445566;
     font-size: 40px;
     color: #CCDDEE;
+}
+
+.change-colors {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.colorBtn {
+    border-radius: 100px;
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    width: 80px;
+    height: 80px;
+    opacity: 0.75;
+    background-color: white;
+}
+
+.black {
+    background-color: black;
+}
+
+.color-selector {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    opacity: 0.75;
+    width: 85px;
+    height: 85px;
+    border: none;
+    cursor: pointer;
+}
+
+.color-selector::-webkit-color-swatch {
+    border-radius: 100px;
+}
+
+.color-selector::-moz-color-swatch {
+    border-radius: 100px;
+}
+
+.colorBtn:hover {
+    opacity: 1;
 }
 
 .dimensions {
@@ -93,7 +144,7 @@ h1 {
 }
 
 .grid {
-    background-color: #112233;
+    background-color: white;
     height: 800px;
     width: 800px;
     min-width: 800px;
@@ -108,3 +159,6 @@ h1 {
     width: 100%;
 }
 
+.success {
+    background-color: black;
+}
