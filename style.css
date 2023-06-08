@@ -94,6 +94,11 @@ h1 {
     height: 85%;
 }
 
+.opac {
+    /* background-color: black; */
+    background: linear-gradient(90deg, white 0%, grey 50%, black 100%);
+}
+
 .color-selector {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -115,10 +120,6 @@ h1 {
 .color-selector::-moz-color-swatch {
     border-radius: 100px;
 }
-
-/* .colorBtn:hover {
-    opacity: 0.9;
-} */
 
 .dimensions {
     display: flex;
@@ -145,7 +146,8 @@ h1 {
     gap: 20px;
 }
 
-.change {
+.change,
+.changeAttr {
     color: lightgrey;
     border: none;
     outline: none;
@@ -162,8 +164,14 @@ h1 {
     height: 60px;
     opacity: 0.75;
 }
-.change:hover {
+.change:hover,
+.changeAttr:hover {
     opacity: 1;
+}
+
+.reset {
+    width: 190px;
+    height: 70px;
 }
 
 .grid {

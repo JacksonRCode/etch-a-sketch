@@ -1,3 +1,11 @@
+function reset() {
+    gridSize = 16;
+    tileColor = "black";
+    rainbowOn = false;
+    opacOn = false;
+    opacVal = 0;
+}
+
 function createBtns() {
     let gridBtn = document.querySelectorAll('.change');
     gridBtn.forEach(btn => {
@@ -35,8 +43,13 @@ function makeTile() {
         if (rainbowOn) {
             tileColor = randomRgb();
         }
-        
         tile.style.backgroundColor = tileColor;
+        if (opacOn) {
+            tile.style.opacity = changeOpacity();
+        }
+        else {
+            tile.style.opacity = 1;
+        }
     });
 
     return tile;
@@ -69,19 +82,38 @@ function randomRgb() {
     return 'rgb(' + r + ',' + g + ',' + b + ')';
 }
 
-function colorChange() {
+function changeOpacity() {
+    let ret = opacVal;
+    opacVal += 0.1;
+    if (opacVal > 1) {
+        opacVal = 0;
+    }
+    
+    return ret;
+}
+
+function toolBoxButtons() {
     let buttons = document.querySelectorAll('.colorBtn');
     buttons.forEach((button) => {
         if (button.classList.contains('color-selector')) {
             button.addEventListener('change', (e) => {
                 rainbowOn = false;
-                console.log('hello');
                 tileColor = e.target.value;
             })
         }
         else if (button.classList.contains('rainbow')) {
             button.addEventListener('click', () => {
                 rainbowOn = true;
+            })
+        }
+        else if (button.classList.contains('opac')) {
+            button.addEventListener('click', () => {
+                if (!opacOn) {
+                    opacOn = true;
+                }
+                else {
+                    opacOn = false;
+                }
             })
         }
         else {
@@ -91,14 +123,21 @@ function colorChange() {
             });
         }
     })
+    let resetBtn = document.querySelector('.reset');
+    resetBtn.addEventListener('click', () => {
+        reset();
+        changeGridText();
+    });
 
 }
 
 let gridSize = 16;
 let tileColor = "black";
 let rainbowOn = false;
+let opacOn = false;
+let opacVal = 0;
 
 createBtns();
 makeGrid();
-colorChange();
+toolBoxButtons();
 
