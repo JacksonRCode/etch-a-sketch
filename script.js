@@ -32,6 +32,10 @@ function makeTile() {
     tile.style.width = dim + 'px';
     tile.style.height = dim + 'px';
     tile.addEventListener('mouseover', () => {
+        if (rainbowOn) {
+            tileColor = randomRgb();
+        }
+        
         tile.style.backgroundColor = tileColor;
     });
 
@@ -57,31 +61,42 @@ function newGrid() {
     makeGrid();
 }
 
+function randomRgb() {
+    let r = Math.floor(Math.random() * 255);
+    let g = Math.floor(Math.random() * 255);
+    let b = Math.floor(Math.random() * 255); 
+
+    return 'rgb(' + r + ',' + g + ',' + b + ')';
+}
+
 function colorChange() {
     let buttons = document.querySelectorAll('.colorBtn');
     buttons.forEach((button) => {
         if (button.classList.contains('color-selector')) {
             button.addEventListener('change', (e) => {
+                rainbowOn = false;
                 console.log('hello');
                 tileColor = e.target.value;
             })
         }
+        else if (button.classList.contains('rainbow')) {
+            button.addEventListener('click', () => {
+                rainbowOn = true;
+            })
+        }
         else {
             button.addEventListener('click', () => {
+            rainbowOn = false;
             tileColor = getComputedStyle(button).backgroundColor;
             });
         }
     })
 
-
-
-
-    // let button = document.querySelector('.black');
-    // console.log(getComputedStyle(button).backgroundColor);
 }
 
 let gridSize = 16;
 let tileColor = "black";
+let rainbowOn = false;
 
 createBtns();
 makeGrid();
