@@ -39,7 +39,7 @@ function makeTile() {
     let tile = document.createElement('div');
     tile.style.width = dim + 'px';
     tile.style.height = dim + 'px';
-    tile.addEventListener('mouseover', () => {
+    tile.addEventListener('click', () => {
         if (rainbowOn) {
             tileColor = randomRgb();
         }
